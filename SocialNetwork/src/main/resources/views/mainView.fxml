@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="labelanchor" prefHeight="475.0" prefWidth="400.0" style="-fx-background-color: #ffedf0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controller.MainController">
+   <children>
+      <TabPane fx:id="tabPane" layoutX="-1.0" layoutY="57.0" prefHeight="419.0" prefWidth="416.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab onSelectionChanged="#selectedHandler" text="Friends">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="405.0" prefWidth="380.0">
+                     <children>
+                        <TableView fx:id="friends" layoutX="30.0" layoutY="14.0" onMouseClicked="#checkFriendsHandler" prefHeight="335.0" prefWidth="354.0">
+                           <columns>
+                              <TableColumn fx:id="numeFriend" prefWidth="177.33330726623535" text="Nume" />
+                              <TableColumn fx:id="prenumeFriend" prefWidth="172.00001525878906" text="Prenume" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="remove" disable="true" layoutX="215.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#removeHandler" prefHeight="26.0" prefWidth="68.0" text="Remove" />
+                        <Button fx:id="chat" disable="true" layoutX="132.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#chatHandler" prefHeight="26.0" prefWidth="68.0" text="Chat" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#selectedHandler" text="Requests">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="405.0" prefWidth="418.0">
+                     <children>
+                        <TableView fx:id="requests" layoutX="14.0" layoutY="14.0" onMouseClicked="#checkRequestHandler" prefHeight="335.0" prefWidth="388.0">
+                           <columns>
+                              <TableColumn fx:id="numeRequest" prefWidth="131.99996662139893" text="Nume" />
+                              <TableColumn fx:id="prenumeRequest" prefWidth="132.80006408691406" text="Prenume" />
+                              <TableColumn fx:id="statusRequest" prefWidth="116.00006103515625" text="Status" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="accept" disable="true" layoutX="148.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#acceptHandler" prefHeight="26.0" prefWidth="54.0" text="Accept" />
+                        <Button fx:id="decline" disable="true" layoutX="212.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#declineHandler" text="Decline" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab onSelectionChanged="#selectedHandler" text="Events">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="167.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#eventHandler" text="Create Event" />
+                        <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="343.0" prefWidth="388.0">
+                          <content>
+                            <AnchorPane fx:id="events" minHeight="0.0" minWidth="0.0" prefHeight="341.0" prefWidth="386.0" style="-fx-background-color: #d4d4d4;" />
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#selectedHandler" text="Search">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="414.0">
+                           <children>
+                              <Button fx:id="add" disable="true" layoutX="146.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#addHandler" prefHeight="26.0" prefWidth="54.0" text="Add" />
+                              <Button fx:id="cancel" layoutX="536.0" layoutY="217.0" mnemonicParsing="false" onMouseClicked="#cancelHandler" prefHeight="26.0" prefWidth="54.0" text="Cancel" />
+                              <Button fx:id="cancel" disable="true" layoutX="213.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#cancelHandler" prefHeight="26.0" prefWidth="54.0" text="Cancel" />
+                              <Pagination fx:id="page" layoutX="26.0" layoutY="296.0" onMouseClicked="#pageHandler" pageCount="2" prefHeight="58.0" prefWidth="362.0" />
+                              <TableView fx:id="people" layoutX="33.0" layoutY="18.0" onMouseClicked="#checkPeopleHandler" prefHeight="278.0" prefWidth="359.0">
+                                 <columns>
+                                    <TableColumn fx:id="numePeople" prefWidth="174.40002822875977" text="Nume" />
+                                    <TableColumn fx:id="prenumePeople" prefWidth="174.3999481201172" text="Prenume" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#selectedHandler" text="Activity">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="416.0">
+                     <children>
+                        <DatePicker fx:id="from" layoutX="20.0" layoutY="38.0" onAction="#chartHandler" />
+                        <DatePicker fx:id="to" layoutX="219.0" layoutY="38.0" onAction="#chartHandler" />
+                        <Label layoutX="93.0" layoutY="14.0" text="From" />
+                        <Label layoutX="299.0" layoutY="14.0" text="To" />
+                        <LineChart fx:id="chart" layoutX="7.0" layoutY="73.0" prefHeight="282.0" prefWidth="398.0">
+                          <xAxis>
+                            <CategoryAxis prefWidth="348.0" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis minorTickVisible="false" prefWidth="22.0" side="LEFT" upperBound="9.0" />
+                          </yAxis>
+                        </LineChart>
+                        <Button layoutX="172.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#downloadHandler" text="Download" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label fx:id="label" layoutX="63.0" layoutY="17.0" text="Logged in as" />
+      <Button layoutX="345.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#logoutHandler" style="-fx-border-color: #fe4566;" text="Logout">
+         <effect>
+            <InnerShadow blurType="GAUSSIAN" choke="0.14" color="#fe4566" height="26.93" radius="11.975" width="22.97" />
+         </effect></Button>
+      <Button fx:id="bell" layoutX="297.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#newsHandler" prefHeight="34.0" prefWidth="35.0" style="-fx-background-radius: 100;" text="🔔">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
